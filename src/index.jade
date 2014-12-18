@@ -22,7 +22,7 @@ html
       section.emphatic-text(data-bespoke-backdrop='emphatic')
         h3.bullet Have you ever...
         div
-          h2 Change code directly
+          h2 Changed code directly
           br
           h2 in production?
         br
@@ -195,7 +195,7 @@ html
       // Open Source PaaS for you to run yourself
       // Deis requires CoreOS, Flynn runs on anything (technically only Ubuntu 14.04)
 
-      section
+      //section
         h2 StatsD/Graphite
         br
         img(src="images/graphite.png" style="width: 70%")
@@ -205,7 +205,7 @@ html
       // Round-robin database
       // A real pain to setup
 
-      section
+      //section
         h2 Jenkins
         img(src="images/jenkins.png" style="width: 45%")
 
@@ -228,11 +228,17 @@ html
         img(src="images/riker-grin.jpg" style="width: 45%;")
 
       section
-        h3 You’re the captain - make Riker your "Number One"
+        h3 Heroku-like application deployments for Amazon Web Services.
 
       section
         pre.bullet
           code.language-javascript.
+            $ pip install riker
+
+          code.language-javascript.bullet.
+            $ riker config
+
+          code.language-javascript.bullet.
             $ git clone git@github.com:heroku/node-js-sample.git
 
           code.language-javascript.bullet.
