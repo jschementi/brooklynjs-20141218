@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Build apps, not infrastructure</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1>Build apps, not infrastructure</h1><br>
+        <div class="me round"></div>
+        <h3><a href="http://twitter.com/jschementi">
+            <Jimmy>Schementi</Jimmy></a></h3>
+        <p>@jschementi</p>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h3 class="bullet">Have you ever...</h3>
+        <div>
+          <h2>Change code directly</h2><br>
+          <h2>in production?</h2>
+        </div><br>
+        <pre><code class="language-javascript">$ ssh myapp-prod-box
+$ vi /app/server.js</code></pre>
+        <!--div.bullet(style="position: absolute; bottom: 0; text-align: center; left: 0; right: 0;")
+        img(src="images/coding-horror.png")
+        
+        -->
+      </section>
+      <section><img src="images/wolf.jpg"></section>
+      <section><img src="images/cowboy-coding.jpg"><br>
+        <p style="font-size: 12px"><a href="http://www.bnj.com/blog/cowboy-coding-pink-sombrero">http://www.bnj.com/blog/cowboy-coding-pink-sombrero</a></p>
+      </section>
+      <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/automate-all-the-things.png"></section>
+      <!--section
+      h3 Automation is
+      h2 what we do
+      
+      -->
+      <section>
+        <h2 class="bullet"><span>Application</span><span class="bullet italic">&nbsp;(feature)</span></h2>
+        <h3>vs.</h3>
+        <h2><span>Infrastructure</span><span class="bullet italic">&nbsp;(chore)</span></h2>
+      </section>
+      <section><img src="images/bullshit.jpg"></section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Prioritizing</h2>
+        <h2>infrastructure</h2>
+        <h3>makes it easier to</h3>
+        <h2>ship features</h2>
+      </section>
+      <section><img src="images/bad-time.jpg" style="width: 75%;"></section>
+      <!-- section
+      h3 Talk probably should have been titled
+      h2 Get your infrastructure right 
+      h2 So you don't have to worry about it
+      
+      -->
+      <section>
+        <h3>Think of</h3>
+        <h2>infrastructure</h2>
+        <h3>as a</h3>
+        <h2>product</h2>
+        <h3>you provide to</h3>
+        <h2>yourself</h2>
+      </section>
+      <section>
+        <h2>Features</h2><br>
+        <ul class="bullet">
+          <li>Deploy a brand new app to new servers</li>
+          <li>Deploy existing app</li>
+          <li>Scale an app</li>
+          <li>Spin up a brand new environment</li>
+          <li>Monitor it all</li>
+          <li>All automated</li>
+          <li>Doesn't make you broke</li>
+        </ul>
+      </section>
+      <!-- You don't have to have everything from day 1 - but have a good idea about how you’re going to get there, and plan to get there.-->
+      <!-- Seriously, don’t wait until you need to scale. That’s hell.-->
+      <!-- And don’t be afraid to scale. That will kill your product/company.-->
+      <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/heroku-logo.jpg" style="width:30%">
+        <pre><code class="language-javascript">$ git push heroku master</code></pre>
+        <pre class="tiny-code"><code class="language-javascript">...
+-----&gt; Node.js app detected
+...
+-----&gt; Launching... done
+</code></pre>
+      </section>
+      <!--section
+      h3.bullet the
+      h2 Platform
+      h3 as a
+      h2 Service
+      br
+      ul
+        li Extremely simple to deploy
+        li Buildpacks auto-detects the application type
+        li Custom buildpacks can deploy any application type
+        li Very expensive (lowest is $34.50/month)
+        li Very little control
+        
+      -->
+      <!-- Infrastructure features:-->
+      <!-- Virtual machines (duh)-->
+      <!-- CI-->
+      <!-- Automated deployments-->
+      <!-- Scaling-->
+      <!-- Zero-downtime-->
+      <!-- Rollback/Versioning-->
+      <!-- Monitoring-->
+      <!-- Backups-->
+      <!-- Project-specific tools (grunt/gulp/Makefile, lint, minify, static analysis, build, testing)-->
+      <section><img src="images/docker.png" style="width:30%"><br>
+        <h2>Application</h2>
+        <h2>Containers</h2><br>
+        <h3>Isolated the application’s view of the OS</h3>
+      </section>
+      <!-- their own process ID space, filesystem, and network interfaces, constrained resources-->
+      <section>
+        <h2>Dockerfile</h2>
+        <pre><code class="language-javascript">FROM    centos:centos6
+
+RUN     yum install -y npm
+
+COPY . /src
+RUN cd /src; npm install
+
+EXPOSE  8080
+CMD ["node", "/src/index.js"]
+</code></pre>
+      </section>
+      <!--    Dockerfile defines how app is deployed from scratch-->
+      <!--    You can run the same docker container in production and development.-->
+      <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/aws.png" style="width: 70%"></section>
+      <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/AWS_Management_Console.png" style="width: 72%"></section>
+      <!-- “The” compute cloud - EC2-->
+      <!-- Auto-scaling and load balancing built-in-->
+      <!-- “The” storage in the cloud - S3-->
+      <!-- “The" CDN - CloudFront-->
+      <!-- Beanstalk - Heroku for AWS-->
+      <!-- Overall OK. Except for the crazy bad environments the have by default.-->
+      <!-- Docker support changes all this-->
+      <!-- Handles configuration of auto-scaling and DNS for you.-->
+      <!-- Handles rolling deployments (update n instances or m% of instances at any time)-->
+      <!-- Tons of other services, data storage, private networks, DNS, app services, mobile services, deployment stuff, oh my!-->
+      <!-- And they overlap! OpsWorks, Beanstalk, and CloudFormation, for example. Or complete with Open Source offerings (all the databases, for example)-->
+      <!-- CodeDeploy manages applications and how to deploy them (again, overlap with Beanstalk, but more general)-->
+      <!-- EC2 Container Service supports clustering of Docker containers-->
+      <!-- Lambda - respond to events with code. -->
+      <section><img src="images/docean.svg"></section>
+      <!-- DigitalOcean-->
+      <!-- Basically the EC2+Route53 portion of AWS-->
+      <!-- Awesome UI for both API and website-->
+      <!-- A NYC data center, hellz yeah-->
+      <!-- Any load balancing needs to be done with another dedicated droplet (HAProxy maybe?), and scaling either manually or with another auto-scaling system (more about the later).-->
+      <!-- Flynn/Deis-->
+      <!-- Open Source PaaS for you to run yourself-->
+      <!-- Deis requires CoreOS, Flynn runs on anything (technically only Ubuntu 14.04)-->
+      <section>
+        <h2>StatsD/Graphite</h2><br><img src="images/graphite.png" style="width: 70%">
+      </section>
+      <!-- StatsD/Graphite-->
+      <!-- System monitoring and graphing-->
+      <!-- Round-robin database-->
+      <!-- A real pain to setup-->
+      <section>
+        <h2>Jenkins</h2><img src="images/jenkins.png" style="width: 45%">
+      </section>
+      <!-- CI & CD-->
+      <!-- Tons of options. All good and bad.-->
+      <!-- I use Jenkins-->
+      <!-- Open source (but, Java)-->
+      <!-- Just a scheduling system - plugins can make it special, or just use custom scripts-->
+      <!-- It schedules everything that the system doesn’t depend on.-->
+      <!-- Can use Janky and HuBot for better UI, but whatever.-->
+      <!-- Holy fuck, that’s a lot! How does it help us make an infrastructure that we don’t have to worry about so much!!-->
+      <section>
+        <h3>Feels like somethings missing...</h3>
+      </section>
+      <section>
+        <h2>Riker</h2><br><img src="images/riker-grin.jpg" style="width: 45%;">
+      </section>
+      <section>
+        <h3>You’re the captain - make Riker your "Number One"</h3>
+      </section>
+      <section>
+        <pre class="bullet"><code class="language-javascript">$ git clone git@github.com:heroku/node-js-sample.git
+</code><code class="language-javascript bullet">$ cd node-js-sample
+</code><code class="language-javascript bullet">$ riker deploy
+</code><code class="language-javascript bullet">$ riker open
+</code></pre>
+      </section>
+      <section>
+        <h2>Deploy an application</h2>
+        <h2>in any language</h2>
+        <h3>Uses Heroku Buildpacks</h3>
+      </section>
+      <section>
+        <h2>Deploy a static website</h2>
+        <h2>to S3</h2>
+        <pre><code class="language-javascript bullet">$ mkdir static-website && cd static-website
+</code><code class="language-javascript bullet">$ echo "Hello, World" > index.html
+</code><code class="language-javascript bullet">$ touch .s3 # tells Riker to deploy to Amazon S3
+</code><code class="language-javascript bullet">$ git init && git add -A && git commit -m "Initial commit"
+</code><code class="language-javascript bullet">$ riker deploy
+</code><code class="language-javascript bullet">$ riker open
+</code></pre>
+      </section>
+      <section>
+        <h2>Production mode</h2><br>
+        <ul class="bullet">
+          <li>Auto-scaling</li>
+          <li>Rolling deployment</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Future</h2><br>
+        <ul class="bullet">
+          <li>Support more clouds (eg. DigitalOcean) through adapters</li>
+          <li>Dockerfile support</li>
+          <li>Use more of AWS (beanstalk, codedeploy, etc)</li>
+        </ul>
+      </section>
+      <section>
+        <p style="font-size: 2em"><a href="https://github.com/jschementi/riker">github.com/jschementi/riker </a></p>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h2>Codequak</h2>
+        <h3>Build awesome stuff</h3>
+      </section>
+      <section>
+        <h1>Thanks!</h1><br>
+        <div class="me round"></div>
+        <h3>@jschementi</h3>
+      </section>
+      <!--section
+      h2 Leaf
+      br
+      img(src="images/leaf.jpg" style="width: 15em")
+      
+      -->
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
