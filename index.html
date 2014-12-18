@@ -17,7 +17,7 @@
       <section data-bespoke-backdrop="emphatic" class="emphatic-text">
         <h3 class="bullet">Have you ever...</h3>
         <div>
-          <h2>Change code directly</h2><br>
+          <h2>Changed code directly</h2><br>
           <h2>in production?</h2>
         </div><br>
         <pre><code class="language-javascript">$ ssh myapp-prod-box
@@ -157,16 +157,21 @@ CMD ["node", "/src/index.js"]
       <!-- Flynn/Deis-->
       <!-- Open Source PaaS for you to run yourself-->
       <!-- Deis requires CoreOS, Flynn runs on anything (technically only Ubuntu 14.04)-->
-      <section>
-        <h2>StatsD/Graphite</h2><br><img src="images/graphite.png" style="width: 70%">
-      </section>
+      <!--section
+      h2 StatsD/Graphite
+      br
+      img(src="images/graphite.png" style="width: 70%")
+      
+      -->
       <!-- StatsD/Graphite-->
       <!-- System monitoring and graphing-->
       <!-- Round-robin database-->
       <!-- A real pain to setup-->
-      <section>
-        <h2>Jenkins</h2><img src="images/jenkins.png" style="width: 45%">
-      </section>
+      <!--section
+      h2 Jenkins
+      img(src="images/jenkins.png" style="width: 45%")
+      
+      -->
       <!-- CI & CD-->
       <!-- Tons of options. All good and bad.-->
       <!-- I use Jenkins-->
@@ -182,10 +187,12 @@ CMD ["node", "/src/index.js"]
         <h2>Riker</h2><br><img src="images/riker-grin.jpg" style="width: 45%;">
       </section>
       <section>
-        <h3>You’re the captain - make Riker your "Number One"</h3>
+        <h3>Heroku-like application deployments for Amazon Web Services.</h3>
       </section>
       <section>
-        <pre class="bullet"><code class="language-javascript">$ git clone git@github.com:heroku/node-js-sample.git
+        <pre class="bullet"><code class="language-javascript">$ pip install riker
+</code><code class="language-javascript bullet">$ riker config
+</code><code class="language-javascript bullet">$ git clone git@github.com:heroku/node-js-sample.git
 </code><code class="language-javascript bullet">$ cd node-js-sample
 </code><code class="language-javascript bullet">$ riker deploy
 </code><code class="language-javascript bullet">$ riker open
