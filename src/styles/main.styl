@@ -6,3 +6,38 @@
 
 @import 'prism/themes/prism-okaidia.css'
 // Check out "bower_components/prism/themes/" for available themes
+
+.me
+  background-image url(../images/me.png)
+  background-size contain
+  width 4em
+  height 4em
+  border-radius 2em
+
+.light-bg.bespoke-backdrop-active
+  background-color white
+  opacity 1
+.light-bg
+  color #333 !important
+  code[class*="language-"], pre[class*="language-"]
+    color #333 !important
+    .token.operator
+    .token.punctuation
+      color #555 !important
+
+.year-range
+  color: #aaa;
+  font-size: 0.75em;
+  float: right;
+  margin-left: 1em;
+  line-height: 2em;
+
+.italic
+  font-style: italic;
+  text-transform: none;
+  font-family: didot,times new roman,serif;
+
+.tiny-code
+  code[class*="language-"], pre[class*="language-"]
+    font-size 0.8em
+    line-height 1

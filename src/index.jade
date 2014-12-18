@@ -13,59 +13,298 @@ html
 
       section
         h1 Build apps, not infrastructure
-
-      section
-        h2 Keyboard Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
-
-      section
-        h2 Touch Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
-
-      section
-        h2 Responsive Slides
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
-
-      section
-        h2 Bullet List
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
-        ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
-
-      section
-        h2 Syntax Highlighting
-        h3 Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
-        pre
-          code.language-javascript.
-            bespoke.from('article', [
-              classes(),
-              keys(),
-              touch(),
-              bullets('li, .bullet')
-            ]);
-
-      section(data-bespoke-hash='named-route')
-        h2 Named Route
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
+        br
+        div.me.round
+        h3
+          a(href="http://twitter.com/jschementi")
+            Jimmy Schementi
+        p @jschementi
 
       section.emphatic-text(data-bespoke-backdrop='emphatic')
-        h2 Emphatic Slide!
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-backdrop">bespoke-backdrop</a>
+        h3.bullet Have you ever...
+        div
+          h2 Change code directly
+          br
+          h2 in production?
+        br
+        pre
+          code.language-javascript.
+            $ ssh myapp-prod-box
+            $ vi /app/server.js
+        //div.bullet(style="position: absolute; bottom: 0; text-align: center; left: 0; right: 0;")
+          img(src="images/coding-horror.png")
 
       section
-        h2.bullet Just the beginning...
+        img(src="images/wolf.jpg")
+
+      section
+        img(src="images/cowboy-coding.jpg")
+        br
+        p(style="font-size: 12px") <a href="http://www.bnj.com/blog/cowboy-coding-pink-sombrero">http://www.bnj.com/blog/cowboy-coding-pink-sombrero</a>
+
+      section.light-bg(data-bespoke-backdrop='light-bg')
+        img(src="images/automate-all-the-things.png")
+
+      //section
+        h3 Automation is
+        h2 what we do
+
+      section
+        h2.bullet
+          span Application
+          span.bullet.italic &nbsp;(feature)
+        h3 vs.
+        h2
+          span Infrastructure
+          span.bullet.italic &nbsp;(chore)
+
+      section
+        img(src="images/bullshit.jpg")
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Prioritizing
+        h2 infrastructure
+        h3 makes it easier to
+        h2 ship features
+
+      section
+        img(src="images/bad-time.jpg" style="width: 75%;")
+
+      // section
+        h3 Talk probably should have been titled
+        h2 Get your infrastructure right 
+        h2 So you don't have to worry about it
+
+      section
+        h3 Think of
+        h2 infrastructure
+        h3 as a
+        h2 product
+        h3 you provide to
+        h2 yourself
+
+      section
+        h2 Features
+        br
+        ul.bullet
+          li Deploy a brand new app to new servers
+          li Deploy existing app
+          li Scale an app
+          li Spin up a brand new environment
+          li Monitor it all
+          li All automated
+          li Doesn't make you broke
+
+      // You don't have to have everything from day 1 - but have a good idea about how you’re going to get there, and plan to get there.
+      // Seriously, don’t wait until you need to scale. That’s hell.
+      // And don’t be afraid to scale. That will kill your product/company.
+
+      section.light-bg(data-bespoke-backdrop='light-bg')
+        img(src="images/heroku-logo.jpg" style="width:30%")
+        pre
+          code.language-javascript.
+            $ git push heroku master
+        pre.tiny-code
+          code.language-javascript.
+            ...
+            -----&gt; Node.js app detected
+            ...
+            -----&gt; Launching... done
+
+      //section
+        h3.bullet the
+        h2 Platform
+        h3 as a
+        h2 Service
         br
         ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
+          li Extremely simple to deploy
+          li Buildpacks auto-detects the application type
+          li Custom buildpacks can deploy any application type
+          li Very expensive (lowest is $34.50/month)
+          li Very little control
+
+      // Infrastructure features:
+      // Virtual machines (duh)
+      // CI
+      // Automated deployments
+      // Scaling
+      // Zero-downtime
+      // Rollback/Versioning
+      // Monitoring
+      // Backups
+      // Project-specific tools (grunt/gulp/Makefile, lint, minify, static analysis, build, testing)
+
+      section
+        img(src="images/docker.png" style="width:30%")
         br
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+        h2 Application
+        h2 Containers
+        br
+        h3 Isolated the application’s view of the OS
+
+      // their own process ID space, filesystem, and network interfaces, constrained resources
+
+      section
+        h2 Dockerfile
+        pre
+          code.language-javascript.
+            FROM    centos:centos6
+
+            RUN     yum install -y npm
+
+            COPY . /src
+            RUN cd /src; npm install
+
+            EXPOSE  8080
+            CMD ["node", "/src/index.js"]
+
+      //    Dockerfile defines how app is deployed from scratch
+      //    You can run the same docker container in production and development.
+
+      section.light-bg(data-bespoke-backdrop='light-bg')
+        img(src="images/aws.png" style="width: 70%")
+
+      section.light-bg(data-bespoke-backdrop='light-bg')
+        img(src="images/AWS_Management_Console.png" style="width: 72%")
+
+      // “The” compute cloud - EC2
+      // Auto-scaling and load balancing built-in
+      // “The” storage in the cloud - S3
+      // “The" CDN - CloudFront
+      // Beanstalk - Heroku for AWS
+      // Overall OK. Except for the crazy bad environments the have by default.
+      // Docker support changes all this
+      // Handles configuration of auto-scaling and DNS for you.
+      // Handles rolling deployments (update n instances or m% of instances at any time)
+      // Tons of other services, data storage, private networks, DNS, app services, mobile services, deployment stuff, oh my!
+      // And they overlap! OpsWorks, Beanstalk, and CloudFormation, for example. Or complete with Open Source offerings (all the databases, for example)
+      // CodeDeploy manages applications and how to deploy them (again, overlap with Beanstalk, but more general)
+      // EC2 Container Service supports clustering of Docker containers
+      // Lambda - respond to events with code. 
+
+      section
+        img(src="images/docean.svg")
+
+      // DigitalOcean
+      // Basically the EC2+Route53 portion of AWS
+      // Awesome UI for both API and website
+      // A NYC data center, hellz yeah
+      // Any load balancing needs to be done with another dedicated droplet (HAProxy maybe?), and scaling either manually or with another auto-scaling system (more about the later).
+
+      // Flynn/Deis
+      // Open Source PaaS for you to run yourself
+      // Deis requires CoreOS, Flynn runs on anything (technically only Ubuntu 14.04)
+
+      section
+        h2 StatsD/Graphite
+        br
+        img(src="images/graphite.png" style="width: 70%")
+
+      // StatsD/Graphite
+      // System monitoring and graphing
+      // Round-robin database
+      // A real pain to setup
+
+      section
+        h2 Jenkins
+        img(src="images/jenkins.png" style="width: 45%")
+
+      // CI & CD
+      // Tons of options. All good and bad.
+      // I use Jenkins
+      // Open source (but, Java)
+      // Just a scheduling system - plugins can make it special, or just use custom scripts
+      // It schedules everything that the system doesn’t depend on.
+      // Can use Janky and HuBot for better UI, but whatever.
+
+      // Holy fuck, that’s a lot! How does it help us make an infrastructure that we don’t have to worry about so much!!
+      
+      section
+        h3 Feels like somethings missing...
+
+      section
+        h2 Riker
+        br
+        img(src="images/riker-grin.jpg" style="width: 45%;")
+
+      section
+        h3 You’re the captain - make Riker your "Number One"
+
+      section
+        pre.bullet
+          code.language-javascript.
+            $ git clone git@github.com:heroku/node-js-sample.git
+
+          code.language-javascript.bullet.
+            $ cd node-js-sample
+
+          code.language-javascript.bullet.
+            $ riker deploy
+
+          code.language-javascript.bullet.
+            $ riker open
+
+      section
+        h2 Deploy an application
+        h2 in any language
+        h3 Uses Heroku Buildpacks
+
+      section
+        h2 Deploy a static website
+        h2 to S3
+
+        pre
+          code.language-javascript.bullet.
+            $ mkdir static-website && cd static-website
+
+          code.language-javascript.bullet.
+            $ echo "Hello, World" > index.html
+
+          code.language-javascript.bullet.
+            $ touch .s3 # tells Riker to deploy to Amazon S3
+
+          code.language-javascript.bullet.
+            $ git init && git add -A && git commit -m "Initial commit"
+
+          code.language-javascript.bullet.
+            $ riker deploy
+
+          code.language-javascript.bullet.
+            $ riker open
+
+      section
+        h2 Production mode
+        br
+        ul.bullet
+          li Auto-scaling
+          li Rolling deployment
+
+      section
+        h2 Future
+        br
+        ul.bullet
+          li Support more clouds (eg. DigitalOcean) through adapters
+          li Dockerfile support
+          li Use more of AWS (beanstalk, codedeploy, etc)
+
+      section
+        p(style="font-size: 2em")
+          a(href="https://github.com/jschementi/riker") github.com/jschementi/riker 
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
+        h2 Codequak
+        h3 Build awesome stuff
+
+      section
+        h1 Thanks!
+        br
+        div.me.round
+        h3 @jschementi
+
+      //section
+        h2 Leaf
+        br
+        img(src="images/leaf.jpg" style="width: 15em")
 
     script(src='build/build.js')

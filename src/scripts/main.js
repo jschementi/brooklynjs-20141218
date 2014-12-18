@@ -1,6 +1,6 @@
 // Require Node modules in the browser thanks to Browserify: http://browserify.org
 var bespoke = require('bespoke'),
-  cube = require('bespoke-theme-cube'),
+  nebula = require('bespoke-theme-nebula'),
   keys = require('bespoke-keys'),
   touch = require('bespoke-touch'),
   bullets = require('bespoke-bullets'),
@@ -11,7 +11,7 @@ var bespoke = require('bespoke'),
 
 // Bespoke.js
 bespoke.from('article', [
-  cube(),
+  nebula(),
   keys(),
   touch(),
   bullets('li, .bullet'),
