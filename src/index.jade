@@ -7,14 +7,6 @@ html
 
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
-    style.
-      .riker-grin {
-        background-image: url('images/riker-grin.jpg');
-      }
-      .picard-wtf {
-        background-image: url('images/picard-wtf.jpg');
-      }
-
   body
 
     article
@@ -53,10 +45,6 @@ html
       section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/automate-all-the-things.png")
 
-      //section
-        h3 Automation is
-        h2 what we do
-
       section
         h2.bullet
           span Application
@@ -78,11 +66,6 @@ html
       section
         img(src="images/bad-time.jpg" style="width: 75%;")
 
-      // section
-        h3 Talk probably should have been titled
-        h2 Get your infrastructure right 
-        h2 So you don't have to worry about it
-
       section
         h3 Think of
         h2 infrastructure
@@ -102,10 +85,6 @@ html
           li All automated
           li Doesn't make you broke
 
-      // You don't have to have everything from day 1 - but have a good idea about how you’re going to get there, and plan to get there.
-      // Seriously, don’t wait until you need to scale. That’s hell.
-      // And don’t be afraid to scale. That will kill your product/company.
-
       section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/heroku-logo.jpg" style="width:30%")
         pre
@@ -118,30 +97,6 @@ html
             ...
             -----&gt; Launching... done
 
-      //section
-        h3.bullet the
-        h2 Platform
-        h3 as a
-        h2 Service
-        br
-        ul
-          li Extremely simple to deploy
-          li Buildpacks auto-detects the application type
-          li Custom buildpacks can deploy any application type
-          li Very expensive (lowest is $34.50/month)
-          li Very little control
-
-      // Infrastructure features:
-      // Virtual machines (duh)
-      // CI
-      // Automated deployments
-      // Scaling
-      // Zero-downtime
-      // Rollback/Versioning
-      // Monitoring
-      // Backups
-      // Project-specific tools (grunt/gulp/Makefile, lint, minify, static analysis, build, testing)
-
       section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/docker.png" style="width:30%")
         br
@@ -149,8 +104,6 @@ html
         h2 Containers
         br
         h3 Isolated the application’s view of the OS
-
-      // their own process ID space, filesystem, and network interfaces, constrained resources
 
       section
         h2 Dockerfile
@@ -166,66 +119,14 @@ html
             EXPOSE  8080
             CMD ["node", "/src/index.js"]
 
-      //    Dockerfile defines how app is deployed from scratch
-      //    You can run the same docker container in production and development.
-
       section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/aws.png" style="width: 70%")
 
       section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/AWS_Management_Console.png" style="width: 72%")
 
-      // “The” compute cloud - EC2
-      // Auto-scaling and load balancing built-in
-      // “The” storage in the cloud - S3
-      // “The" CDN - CloudFront
-      // Beanstalk - Heroku for AWS
-      // Overall OK. Except for the crazy bad environments the have by default.
-      // Docker support changes all this
-      // Handles configuration of auto-scaling and DNS for you.
-      // Handles rolling deployments (update n instances or m% of instances at any time)
-      // Tons of other services, data storage, private networks, DNS, app services, mobile services, deployment stuff, oh my!
-      // And they overlap! OpsWorks, Beanstalk, and CloudFormation, for example. Or complete with Open Source offerings (all the databases, for example)
-      // CodeDeploy manages applications and how to deploy them (again, overlap with Beanstalk, but more general)
-      // EC2 Container Service supports clustering of Docker containers
-      // Lambda - respond to events with code. 
-
       section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/docean.svg")
-
-      // DigitalOcean
-      // Basically the EC2+Route53 portion of AWS
-      // Awesome UI for both API and website
-      // A NYC data center, hellz yeah
-      // Any load balancing needs to be done with another dedicated droplet (HAProxy maybe?), and scaling either manually or with another auto-scaling system (more about the later).
-
-      // Flynn/Deis
-      // Open Source PaaS for you to run yourself
-      // Deis requires CoreOS, Flynn runs on anything (technically only Ubuntu 14.04)
-
-      //section
-        h2 StatsD/Graphite
-        br
-        img(src="images/graphite.png" style="width: 70%")
-
-      // StatsD/Graphite
-      // System monitoring and graphing
-      // Round-robin database
-      // A real pain to setup
-
-      //section
-        h2 Jenkins
-        img(src="images/jenkins.png" style="width: 45%")
-
-      // CI &amp; CD
-      // Tons of options. All good and bad.
-      // I use Jenkins
-      // Open source (but, Java)
-      // Just a scheduling system - plugins can make it special, or just use custom scripts
-      // It schedules everything that the system doesn’t depend on.
-      // Can use Janky and HuBot for better UI, but whatever.
-
-      // Holy fuck, that’s a lot! How does it help us make an infrastructure that we don’t have to worry about so much!!
 
       section
         h3 Feels like something's missing...
@@ -259,6 +160,21 @@ html
             $ riker open
 
       section
+        h3.bullet What does that do?
+        ul
+          li
+            span Configures your AWS account to use Riker
+            span.bullet.italic &nbsp;(first time only)
+          li
+            span Creates a base AMI (Ubuntu 14 + Docker)
+            span.bullet.italic &nbsp;(first time only)
+          li
+            span Deploys your app
+            span.bullet.italic &nbsp;(first time launches new instance)
+          li Saves new AMI
+          li Configures Route53 and gives you URL
+
+      section.emphatic-text(data-bespoke-backdrop='emphatic')
         h2.bullet Deploy apps
         h3 written in any
         h2 programming
@@ -267,8 +183,24 @@ html
         h3.bullet (uses Heroku Buildpacks)
 
       section
-        h2 Deploy a static website
-        h2 to S3
+        h2 Production-ready
+        br
+        pre
+          code.
+            riker deploy --scale
+        br
+        div.bullet(style="text-align: left")
+          div.bullet
+            p Provisions load-balancer and auto-scaling for each app
+            p.italic Use AWS to manually scale or automate it with CloudWatch
+          br
+          div.bullet
+            p Manages rolling deployments
+            p.italic New instances only available after passing health check, old instances then fall out.
+
+      section
+        h3.bullet Deploy a static website to
+        h2 S3
 
         pre
           code.language-javascript.bullet.
@@ -288,13 +220,6 @@ html
 
           code.language-javascript.bullet.
             $ riker open
-
-      section
-        h2 Production mode
-        br
-        ul.bullet
-          li Auto-scaling
-          li Rolling deployment
 
       section
         h2 Future
@@ -317,10 +242,5 @@ html
         br
         div.me.round
         h3 @jschementi
-
-      //section
-        h2 Leaf
-        br
-        img(src="images/leaf.jpg" style="width: 15em")
 
     script(src='build/build.js')
