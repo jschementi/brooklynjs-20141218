@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Build apps, not infrastructure</title>
     <link rel="stylesheet" type="text/css" href="build/build.css">
-    <style>
-      .riker-grin {
-        background-image: url('images/riker-grin.jpg');
-      }
-      .picard-wtf {
-        background-image: url('images/picard-wtf.jpg');
-      }
-      
-    </style>
   </head>
   <body>
     <article>
@@ -40,11 +31,6 @@ $ vi /app/server.js</code></pre>
       <section><img src="images/wolf.jpg"></section>
       <section><img src="images/cowboy-coding.jpg"><br><a style="font-size: 12px" href="http://www.bnj.com/blog/cowboy-coding-pink-sombrero">http://www.bnj.com/blog/cowboy-coding-pink-sombrero</a></section>
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/automate-all-the-things.png"></section>
-      <!--section
-      h3 Automation is
-      h2 what we do
-      
-      -->
       <section>
         <h2 class="bullet"><span>Application</span><span class="bullet italic">&nbsp;(feature)</span></h2>
         <h3>vs.</h3>
@@ -58,12 +44,6 @@ $ vi /app/server.js</code></pre>
         <h2>ship features</h2>
       </section>
       <section><img src="images/bad-time.jpg" style="width: 75%;"></section>
-      <!-- section
-      h3 Talk probably should have been titled
-      h2 Get your infrastructure right 
-      h2 So you don't have to worry about it
-      
-      -->
       <section>
         <h3>Think of</h3>
         <h2>infrastructure</h2>
@@ -83,9 +63,6 @@ $ vi /app/server.js</code></pre>
           <li>Doesn't make you broke</li>
         </ul>
       </section>
-      <!-- You don't have to have everything from day 1 - but have a good idea about how you’re going to get there, and plan to get there.-->
-      <!-- Seriously, don’t wait until you need to scale. That’s hell.-->
-      <!-- And don’t be afraid to scale. That will kill your product/company.-->
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/heroku-logo.jpg" style="width:30%">
         <pre><code class="language-javascript">$ git push heroku master</code></pre>
         <pre class="tiny-code"><code class="language-javascript">...
@@ -94,36 +71,11 @@ $ vi /app/server.js</code></pre>
 -----&gt; Launching... done
 </code></pre>
       </section>
-      <!--section
-      h3.bullet the
-      h2 Platform
-      h3 as a
-      h2 Service
-      br
-      ul
-        li Extremely simple to deploy
-        li Buildpacks auto-detects the application type
-        li Custom buildpacks can deploy any application type
-        li Very expensive (lowest is $34.50/month)
-        li Very little control
-        
-      -->
-      <!-- Infrastructure features:-->
-      <!-- Virtual machines (duh)-->
-      <!-- CI-->
-      <!-- Automated deployments-->
-      <!-- Scaling-->
-      <!-- Zero-downtime-->
-      <!-- Rollback/Versioning-->
-      <!-- Monitoring-->
-      <!-- Backups-->
-      <!-- Project-specific tools (grunt/gulp/Makefile, lint, minify, static analysis, build, testing)-->
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/docker.png" style="width:30%"><br>
         <h2>Application</h2>
         <h2>Containers</h2><br>
         <h3>Isolated the application’s view of the OS</h3>
       </section>
-      <!-- their own process ID space, filesystem, and network interfaces, constrained resources-->
       <section>
         <h2>Dockerfile</h2>
         <pre><code class="language-javascript">FROM    centos:centos6
@@ -137,56 +89,9 @@ EXPOSE  8080
 CMD ["node", "/src/index.js"]
 </code></pre>
       </section>
-      <!--    Dockerfile defines how app is deployed from scratch-->
-      <!--    You can run the same docker container in production and development.-->
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/aws.png" style="width: 70%"></section>
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/AWS_Management_Console.png" style="width: 72%"></section>
-      <!-- “The” compute cloud - EC2-->
-      <!-- Auto-scaling and load balancing built-in-->
-      <!-- “The” storage in the cloud - S3-->
-      <!-- “The" CDN - CloudFront-->
-      <!-- Beanstalk - Heroku for AWS-->
-      <!-- Overall OK. Except for the crazy bad environments the have by default.-->
-      <!-- Docker support changes all this-->
-      <!-- Handles configuration of auto-scaling and DNS for you.-->
-      <!-- Handles rolling deployments (update n instances or m% of instances at any time)-->
-      <!-- Tons of other services, data storage, private networks, DNS, app services, mobile services, deployment stuff, oh my!-->
-      <!-- And they overlap! OpsWorks, Beanstalk, and CloudFormation, for example. Or complete with Open Source offerings (all the databases, for example)-->
-      <!-- CodeDeploy manages applications and how to deploy them (again, overlap with Beanstalk, but more general)-->
-      <!-- EC2 Container Service supports clustering of Docker containers-->
-      <!-- Lambda - respond to events with code. -->
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/docean.svg"></section>
-      <!-- DigitalOcean-->
-      <!-- Basically the EC2+Route53 portion of AWS-->
-      <!-- Awesome UI for both API and website-->
-      <!-- A NYC data center, hellz yeah-->
-      <!-- Any load balancing needs to be done with another dedicated droplet (HAProxy maybe?), and scaling either manually or with another auto-scaling system (more about the later).-->
-      <!-- Flynn/Deis-->
-      <!-- Open Source PaaS for you to run yourself-->
-      <!-- Deis requires CoreOS, Flynn runs on anything (technically only Ubuntu 14.04)-->
-      <!--section
-      h2 StatsD/Graphite
-      br
-      img(src="images/graphite.png" style="width: 70%")
-      
-      -->
-      <!-- StatsD/Graphite-->
-      <!-- System monitoring and graphing-->
-      <!-- Round-robin database-->
-      <!-- A real pain to setup-->
-      <!--section
-      h2 Jenkins
-      img(src="images/jenkins.png" style="width: 45%")
-      
-      -->
-      <!-- CI &amp; CD-->
-      <!-- Tons of options. All good and bad.-->
-      <!-- I use Jenkins-->
-      <!-- Open source (but, Java)-->
-      <!-- Just a scheduling system - plugins can make it special, or just use custom scripts-->
-      <!-- It schedules everything that the system doesn’t depend on.-->
-      <!-- Can use Janky and HuBot for better UI, but whatever.-->
-      <!-- Holy fuck, that’s a lot! How does it help us make an infrastructure that we don’t have to worry about so much!!-->
       <section>
         <h3>Feels like something's missing...</h3>
       </section>
@@ -209,6 +114,16 @@ CMD ["node", "/src/index.js"]
 </code></pre>
       </section>
       <section>
+        <h3 class="bullet">What does that do?</h3>
+        <ul>
+          <li><span>Configures your AWS account to use Riker</span><span class="bullet italic">&nbsp;(first time only)</span></li>
+          <li><span>Creates a base AMI (Ubuntu 14 + Docker)</span><span class="bullet italic">&nbsp;(first time only)</span></li>
+          <li><span>Deploys your app</span><span class="bullet italic">&nbsp;(first time launches new instance)</span></li>
+          <li>Saves new AMI</li>
+          <li>Configures Route53 and gives you URL</li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
         <h2 class="bullet">Deploy apps</h2>
         <h3>written in any</h3>
         <h2>programming</h2>
@@ -216,8 +131,22 @@ CMD ["node", "/src/index.js"]
         <h3 class="bullet">(uses Heroku Buildpacks)</h3>
       </section>
       <section>
-        <h2>Deploy a static website</h2>
-        <h2>to S3</h2>
+        <h2>Production-ready</h2><br>
+        <pre><code>riker deploy --scale</code></pre><br>
+        <div style="text-align: left" class="bullet">
+          <div class="bullet">
+            <p>Provisions load-balancer and auto-scaling for each app</p>
+            <p class="italic">Use AWS to manually scale or automate it with CloudWatch</p>
+          </div><br>
+          <div class="bullet">
+            <p>Manages rolling deployments</p>
+            <p class="italic">New instances only available after passing health check, old instances then fall out.</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3 class="bullet">Deploy a static website to</h3>
+        <h2>S3</h2>
         <pre><code class="language-javascript bullet">$ mkdir static-website &amp;&amp; cd static-website
 </code><code class="language-javascript bullet">$ echo "Hello, World" &gt; index.html
 </code><code class="language-javascript bullet">$ touch .s3 # tells Riker to deploy to Amazon S3
@@ -225,13 +154,6 @@ CMD ["node", "/src/index.js"]
 </code><code class="language-javascript bullet">$ riker deploy
 </code><code class="language-javascript bullet">$ riker open
 </code></pre>
-      </section>
-      <section>
-        <h2>Production mode</h2><br>
-        <ul class="bullet">
-          <li>Auto-scaling</li>
-          <li>Rolling deployment</li>
-        </ul>
       </section>
       <section>
         <h2>Future</h2><br>
@@ -253,12 +175,6 @@ CMD ["node", "/src/index.js"]
         <div class="me round"></div>
         <h3>@jschementi</h3>
       </section>
-      <!--section
-      h2 Leaf
-      br
-      img(src="images/leaf.jpg" style="width: 15em")
-      
-      -->
     </article>
     <script src="build/build.js"></script>
   </body>
