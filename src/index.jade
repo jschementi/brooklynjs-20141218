@@ -7,6 +7,14 @@ html
 
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
+    style.
+      .riker-grin {
+        background-image: url('images/riker-grin.jpg');
+      }
+      .picard-wtf {
+        background-image: url('images/picard-wtf.jpg');
+      }
+
   body
 
     article
@@ -22,9 +30,9 @@ html
       section.emphatic-text(data-bespoke-backdrop='emphatic')
         h3.bullet Have you ever...
         div
-          h2 Changed code directly
-          br
-          h2 in production?
+          h2 Changed code
+          h3 directly in
+          h2 production?
         br
         pre
           code.language-javascript.
@@ -39,7 +47,8 @@ html
       section
         img(src="images/cowboy-coding.jpg")
         br
-        p(style="font-size: 12px") <a href="http://www.bnj.com/blog/cowboy-coding-pink-sombrero">http://www.bnj.com/blog/cowboy-coding-pink-sombrero</a>
+        a(style="font-size: 12px" href="http://www.bnj.com/blog/cowboy-coding-pink-sombrero")
+          | http://www.bnj.com/blog/cowboy-coding-pink-sombrero
 
       section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/automate-all-the-things.png")
@@ -90,7 +99,6 @@ html
           li Deploy existing app
           li Scale an app
           li Spin up a brand new environment
-          li Monitor it all
           li All automated
           li Doesn't make you broke
 
@@ -134,7 +142,7 @@ html
       // Backups
       // Project-specific tools (grunt/gulp/Makefile, lint, minify, static analysis, build, testing)
 
-      section
+      section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/docker.png" style="width:30%")
         br
         h2 Application
@@ -182,7 +190,7 @@ html
       // EC2 Container Service supports clustering of Docker containers
       // Lambda - respond to events with code. 
 
-      section
+      section.light-bg(data-bespoke-backdrop='light-bg')
         img(src="images/docean.svg")
 
       // DigitalOcean
@@ -209,7 +217,7 @@ html
         h2 Jenkins
         img(src="images/jenkins.png" style="width: 45%")
 
-      // CI & CD
+      // CI &amp; CD
       // Tons of options. All good and bad.
       // I use Jenkins
       // Open source (but, Java)
@@ -218,17 +226,17 @@ html
       // Can use Janky and HuBot for better UI, but whatever.
 
       // Holy fuck, that’s a lot! How does it help us make an infrastructure that we don’t have to worry about so much!!
-      
-      section
-        h3 Feels like somethings missing...
 
       section
-        h2 Riker
-        br
-        img(src="images/riker-grin.jpg" style="width: 45%;")
+        h3 Feels like something's missing...
 
-      section
-        h3 Heroku-like application deployments for Amazon Web Services.
+      section(data-bespoke-backdrop='riker-grin')
+        div.pin.top
+          h2 Riker
+          h3 Heroku-like application deployments for Amazon Web Services.
+
+      section(data-bespoke-backdrop='picard-wtf')
+        h3(style="padding-left: 40%") You're the captain, make Riker your #1
 
       section
         pre.bullet
@@ -251,9 +259,12 @@ html
             $ riker open
 
       section
-        h2 Deploy an application
-        h2 in any language
-        h3 Uses Heroku Buildpacks
+        h2.bullet Deploy apps
+        h3 written in any
+        h2 programming
+        h2 language
+        br
+        h3.bullet (uses Heroku Buildpacks)
 
       section
         h2 Deploy a static website
@@ -261,16 +272,16 @@ html
 
         pre
           code.language-javascript.bullet.
-            $ mkdir static-website && cd static-website
+            $ mkdir static-website &amp;&amp; cd static-website
 
           code.language-javascript.bullet.
-            $ echo "Hello, World" > index.html
+            $ echo "Hello, World" &gt; index.html
 
           code.language-javascript.bullet.
             $ touch .s3 # tells Riker to deploy to Amazon S3
 
           code.language-javascript.bullet.
-            $ git init && git add -A && git commit -m "Initial commit"
+            $ git init &amp;&amp; git add -A &amp;&amp; git commit -m "Initial commit"
 
           code.language-javascript.bullet.
             $ riker deploy

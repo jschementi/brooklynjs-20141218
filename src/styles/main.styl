@@ -14,16 +14,25 @@
   height 4em
   border-radius 2em
 
-.light-bg.bespoke-backdrop-active
-  background-color white
-  opacity 1
 .light-bg
+  background-color white
   color #333 !important
   code[class*="language-"], pre[class*="language-"]
     color #333 !important
     .token.operator
     .token.punctuation
       color #555 !important
+  &.bespoke-backdrop-active
+    opacity 1
+
+.pin
+  position absolute
+  left 0
+  right 0
+  &.top
+    top 10%
+  &.bottom
+    bottom 10%
 
 .year-range
   color: #aaa;
