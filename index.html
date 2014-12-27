@@ -29,7 +29,14 @@ $ vi /app/server.js</code></pre>
         -->
       </section>
       <section><img src="images/wolf.jpg"></section>
-      <section><img src="images/cowboy-coding.jpg"><br><a style="font-size: 12px" href="http://www.bnj.com/blog/cowboy-coding-pink-sombrero">http://www.bnj.com/blog/cowboy-coding-pink-sombrero</a></section>
+      <section data-bespoke-backdrop="cowboy-coding">
+        <div class="pin top">
+          <h2>Cowboy Coding</h2>
+        </div>
+        <div class="pin bottom">
+          <p style="font-size: 1em"><a href="http://www.bnj.com/blog/cowboy-coding-pink-sombrero">http://www.bnj.com/blog/cowboy-coding-pink-sombrero</a></p>
+        </div>
+      </section>
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/automate-all-the-things.png"></section>
       <section>
         <h2 class="bullet"><span>Application</span><span class="bullet italic">&nbsp;(feature)</span></h2>
@@ -37,14 +44,14 @@ $ vi /app/server.js</code></pre>
         <h2><span>Infrastructure</span><span class="bullet italic">&nbsp;(chore)</span></h2>
       </section>
       <section><img src="images/bullshit.jpg"></section>
-      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+      <section>
         <h2>Prioritizing</h2>
         <h2>infrastructure</h2>
         <h3>makes it easier to</h3>
         <h2>ship features</h2>
       </section>
       <section><img src="images/bad-time.jpg" style="width: 75%;"></section>
-      <section>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
         <h3>Think of</h3>
         <h2>infrastructure</h2>
         <h3>as a</h3>
@@ -53,7 +60,7 @@ $ vi /app/server.js</code></pre>
         <h2>yourself</h2>
       </section>
       <section>
-        <h2>Features</h2><br>
+        <h3 style="font-size: 1.5em">What features do we want?</h3>
         <ul class="bullet">
           <li>Deploy a brand new app to new servers</li>
           <li>Deploy existing app</li>
@@ -92,8 +99,8 @@ CMD ["node", "/src/index.js"]
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/aws.png" style="width: 70%"></section>
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/AWS_Management_Console.png" style="width: 72%"></section>
       <section data-bespoke-backdrop="light-bg" class="light-bg"><img src="images/docean.svg"></section>
-      <section>
-        <h3>Feels like something's missing...</h3>
+      <section data-bespoke-backdrop="emphatic" class="emphatic-text">
+        <h3 style="font-size: 1.5em">Feels like something's missing...</h3>
       </section>
       <section data-bespoke-backdrop="riker-grin">
         <div class="pin top">
@@ -114,7 +121,7 @@ CMD ["node", "/src/index.js"]
 </code></pre>
       </section>
       <section>
-        <h3 class="bullet">What does that do?</h3>
+        <h3 style="font-size: 1.5em" class="bullet">What does that do?</h3>
         <ul>
           <li><span>Configures your AWS account to use Riker</span><span class="bullet italic">&nbsp;(first time only)</span></li>
           <li><span>Creates a base AMI (Ubuntu 14 + Docker)</span><span class="bullet italic">&nbsp;(first time only)</span></li>
@@ -158,9 +165,11 @@ CMD ["node", "/src/index.js"]
       <section>
         <h2>Future</h2><br>
         <ul class="bullet">
-          <li>Support more clouds (eg. DigitalOcean) through adapters</li>
+          <li><span>Support more clouds</span><span class="italic">&nbsp; (eg. DigitalOcean)</span></li>
           <li>Dockerfile support</li>
-          <li>Use more of AWS (beanstalk, codedeploy, etc)</li>
+          <li><span>Use more of AWS</span>
+            <div style="margin-left: 0.8em" class="italic">(Beanstalk, CodeDeploy, EC2 Container Services, etc...)</div>
+          </li>
         </ul>
       </section>
       <section>
